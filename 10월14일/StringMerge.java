@@ -82,9 +82,10 @@ public class StringMerge{
 			System.out.print(city + " ");
 		System.out.println();
 		
+		
 
 		
-		List<String> list3 = new ArrayList<>();
+		ArrayList<String> list3 = new ArrayList<>();
 		String []lst3 = new String[0];
 		lst1 = list1.toArray(lst1);
 		
@@ -98,13 +99,17 @@ public class StringMerge{
         Iterator<String> iter1 = list1.iterator();
         Iterator<String> iter2 = list2.iterator();
         
+        
+        //for,while,Compare
    
 		
+      //주말에
       //ArrayList->배열->정렬->배열->ArrayList(출력) 개념 잡기
-      //merge,sort,collection 해보기
+      //merge,sort,collection,add,asLict 
       //list3 합쳐서 중복 제거 
+      //
 
-
+      
 
 
 
