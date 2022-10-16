@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="kor">
+  <head>
+    <meta charset="UTF-8" />
+  </head>
+  <body>
+    <h1>Object</h1>
+
+    <script>
+      let cow = {
+        pro: "ego",
+        name: "kim",
+      };
+      document.write("pro: " + cow.pro + "<br>");
+      document.write("name: " + cow.name + "<br>");
+      cow.bookkeeper = "JWM";
+      document.write("bookkeeper: " + cow.bookkeeper + "<br>");
+      cow["Kim minsu"] = "men";
+      document.write("Kim minsu: " + cow["Kim minsu"]);
+    </script>
+
+    <h2>Iterate</h2>
+    <script>
+      for (var key in cow) {
+        document.write(key + " : " + cow[key] + "<br>");
+      }
+    </script>
+    <h2>Method</h2>
+    <script>
+      cow.showAll = function () {
+        for (var key in this) {
+          document.write(key + " : " + this[key] + "<br>");
+        }
+      };
+      cow.showAll();
+    </script>
+  </body>
+</html>
