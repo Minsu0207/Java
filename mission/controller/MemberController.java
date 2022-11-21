@@ -1,4 +1,4 @@
-package com.mission.controller;
+package com.rubypaper.controller;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -11,21 +11,26 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.mission.domain.MemberVO;
+import com.rubypaper.domain.MemberVO;
 
 @RestController
+//기본 생성자
 public class MemberController {
-	// 데이터 저장할 변수 list 선언
-	private List<MemberVO> list;
+	List<MemberVO> list = new ArrayList<>();
 
 	public MemberController() {
-		// controller 생성 확인
-		System.out.println("Controller 생성");
-		// 객채생성 반복문 돌면서 list에 데이터 저장
-		list = new ArrayList<MemberVO>();
-		for (int i = 1; i <= 10; i++) {
-			list.add(new MemberVO(i, "name" + i, "1234", new Date()));
+		for (int i = 0; i <= 10; i++) {
+//			MemberVO key = new MemberVO();
+//			key.setId(i);
+//			key.setName("name"+i);
+//			key.setPass("123");
+//			key.setRegidate(new Date());
+//			key.setRegidate(new Date());
+//			list.add(key);
+			// 위에 주석처리된 코드를 한줄로 구현
+			list.add(new MemberVO(i, "name" + i, "123", new Date()));
 		}
+
 	}
 
 	@GetMapping("/member")
@@ -35,32 +40,30 @@ public class MemberController {
 
 	@GetMapping("/member/{id}")
 	public MemberVO getMember(@PathVariable Integer id) {
-		for (MemberVO m : list) {
-			if (m.getId() == id)
-				return m;
+		for (MemberVO key : list) {
+			if (id == key.getId())
+					return key;
 		}
-		System.out.println("데이터가 존재하지 않습니다.");
 		return null;
 	}
-
+	
 	@PostMapping("/member")
-	public MemberVO addMember(MemberVO newmember) {
-		return newmember;
+	public MemberVO addMembers(MemberVO memberVO) {
+		return null;
 	}
-
+	
 	@PutMapping("/member")
-	public MemberVO updateMembers(MemberVO editmember) {
-		return editmember;
+	public MemberVO updateMembers(MemberVO memberVO) {
+		return null;
 	}
-
-//	@DeleteMapping("member/{id}")
-//	public MemberVO removeMember(@PathVariable Integer id) {
-//		for (MemberVO m : list) {
-//			if (m.getId() == id) {
-//				list.remove(id);
-//				
-//			}
-//		}
-//	}
-
+	
+	@DeleteMapping("/member/{id}")
+	public MemberVO removeMember(@PathVariable Integer id) {
+			for (MemberVO key : list) {
+				if (id == key.getId())
+						return key;
+			}
+			return null;
+	}
+	
 }
