@@ -52,6 +52,7 @@ public class ex1 {
 			}
 		}
 	}
+	
 
 	public static boolean checkRow(int[][] d, int crow) {
 		for(int i = 0; i < d.length; i++)
