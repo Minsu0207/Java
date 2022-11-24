@@ -2,9 +2,11 @@ package com.mission.controller;
 
 import java.util.List;
 
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.mission.domain.MemberVO;
@@ -12,17 +14,19 @@ import com.mission.service.MemberService;
 
 @RestController
 public class MemberController {
-
+	
 	private MemberService memberService;
 	
 	public MemberController() {
-		MemberService memberService = new MemberService(); 
+		 memberService = new MemberService(); 
 	}
 	
+
 	//Read	: Get
 	@GetMapping("/member")
 	public List<MemberVO> getMembers() {
 		System.out.println("Controller - getMembers()");
+
 		return memberService.getMembers();
 	}
 
@@ -40,13 +44,15 @@ public class MemberController {
 	}
 	
 	//Update: Put
-//	@PutMapping("/member")
-//	public void putMember() {
-//		memberService.putMember();
-//	}
+	@PutMapping("/member")
+	public MemberVO putMember(MemberVO m) {
+		return memberService.putMember(m);
+	}
+
 	//Delete: Delete
-//	@DeleteMapping("/member")
-//	public void deleteMember() {
-//		memberService.deleteMember();
-//	}
+	@DeleteMapping("/member/{id}")
+	public MemberVO deleteMember(@PathVariable String id) {
+		System.out.printf("Controller - deleteMember(s)\n",id);
+		return memberService.deleteMember(id);
+	}
 }

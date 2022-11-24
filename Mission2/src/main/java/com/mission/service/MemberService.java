@@ -8,7 +8,7 @@ import com.mission.domain.MemberVO;
 public class MemberService {
 
 	private MemberDao memberDao;
-	
+
 	public MemberService() {
 		memberDao = new MemberDao();
 	}
@@ -28,6 +28,20 @@ public class MemberService {
 		return memberDao.postMember(m);
 	}
 
+	public MemberVO putMember(MemberVO m) {
+		System.out.println("Service - putMember(m) - success edit");
+		m.setId("ok");
+		m.setName("success edit");
+		return memberDao.putMember(m);
+	}
 
+	public MemberVO deleteMember(String id) {
+		System.out.println("Service - deleteMember(m)");
+		return memberDao.deleteMember(id);
+	}
+
+
+		
+	
 
 }
